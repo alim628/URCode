@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Image, StyleSheet } from "react-native";
 
 import EditScreenInfo from "../../components/EditScreenInfo";
 import { Text, View } from "../../components/Themed";
@@ -6,12 +6,13 @@ import { Text, View } from "../../components/Themed";
 export default function ParagScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>parag</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
+      <View style={styles.dos}>
+        <Image
+          style={styles.baxsurat}
+          source={require("./../../assets/baxsurat/微信图片_20230315215134.jpg")}
+        ></Image>
+        <Text>Alim</Text>
+      </View>
     </View>
   );
 }
@@ -22,13 +23,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
+  baxsurat: {
+    height: 50,
+    width: 50,
+    marginRight: 10,
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+  dos: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
   },
 });
