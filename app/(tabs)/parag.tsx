@@ -12,7 +12,7 @@ export default function ParagScreen() {
     { isim: '抖音', rasim: './../../assets/baxsurat/抖音.png' },
   ]
   return (
-    <DoslarComponent DATACom={DATA}></DoslarComponent>
+    <DoslarComponent DATACom={DATA} tipi={'parag'}></DoslarComponent>
   );
 }
 

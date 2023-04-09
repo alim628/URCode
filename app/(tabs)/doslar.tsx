@@ -15,7 +15,7 @@ export default function DoslarScreen() {
     { isim: '阿里巴巴', rasim: './../../assets/baxsurat/阿里巴巴.png' },
   ]
   return (
-    <DoslarComponent DATACom={DATA}></DoslarComponent>
+    <DoslarComponent DATACom={DATA} tipi={'doslar'}></DoslarComponent>
   );
 }
 
