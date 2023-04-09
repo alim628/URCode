@@ -1,11 +1,11 @@
-import { Component } from "react";
+import React from 'react';
 import { Image, StyleSheet, SafeAreaView, FlatList,TextInput} from "react-native";
 import { Text, View } from "../components/Themed";
 import Ionicons from "react-native-vector-icons/Ionicons";
-export class DoslarComponent extends Component {
-  DATA = [
-    { isim: 'Alim', rasim: './../../assets/baxsurat/Alim.jpg' }
-  ]
+import * as lodash from "lodash"
+export class DoslarComponent extends React.Component {
+  AsliData=this.props.DATACom;
+  Data=this.props.DATACom;
   renderItem = ({ item }) => (
     <View style={styles.container}>
       <View style={styles.dos}>
@@ -20,14 +20,31 @@ export class DoslarComponent extends Component {
       </View>
     </View>
   );
-
+  indiganda(inzdiganMazmun){
+    if (inzdiganMazmun) {
+      this.Data=lodash.filter(this.AsliData,function(a){
+        return a.isim.toLowerCase().includes(inzdiganMazmun.toLowerCase())?true:false;
+      })
+    } else {
+      this.Data=this.AsliData;
+    }
+    this.forceUpdate();
+  }
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.izdaxView}>
           <Ionicons style={styles.izdaxIcon} name="search" />
-          <TextInput style={styles.izdaxHat} placeholder="izdimakqi bolgan mazmunni kirguzig"></TextInput>
+          <TextInput 
+          style={styles.izdaxHat} 
+          placeholder="izdimakqi bolgan mazmunni kirguzig"
+          placeholderTextColor="#8e8e8f"
+          onChangeText={text => this.indiganda(text)}
+          >
+          
+          </TextInput>
         </View>
+        
         {this.props.tipi === 'doslar' ?
           <View style={styles.yegidos}>
             <View style={styles.dos}>
@@ -41,7 +58,7 @@ export class DoslarComponent extends Component {
           </View>
           : ''}
         <FlatList
-          data={this.props.DATACom}
+          data={this.Data}
           renderItem={this.renderItem}
           keyExtractor={item => item.id}
         />
