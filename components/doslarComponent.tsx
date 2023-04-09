@@ -24,6 +24,10 @@ export class DoslarComponent extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+        <View style={styles.izdaxView}>
+          <Ionicons style={styles.izdaxIcon} name="search" />
+          <TextInput style={styles.izdaxHat} placeholder="izdimakqi bolgan mazmunni kirguzig"></TextInput>
+        </View>
         {this.props.tipi === 'doslar' ?
           <View style={styles.yegidos}>
             <View style={styles.dos}>
@@ -81,4 +85,25 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginTop: 10
   },
+  izdaxView:{
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    flexDirection:'row',
+    paddingRight:10,
+    paddingLeft:10,
+    margin:10,
+    height:30,
+    borderRadius:10,
+
+  },
+  izdaxIcon:{
+    fontSize:15
+  },
+  izdaxHat:{
+    fontSize:15,
+    width:'100%',
+    paddingRight:10,
+    paddingLeft:10
+  }
 });
