@@ -1,11 +1,11 @@
 import React from 'react';
-import { Image, StyleSheet, SafeAreaView, FlatList,TextInput} from "react-native";
+import { Image, StyleSheet, SafeAreaView, FlatList, TextInput } from "react-native";
 import { Text, View } from "../components/Themed";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import * as lodash from "lodash"
 export class DoslarComponent extends React.Component {
-  AsliData=this.props.DATACom;
-  Data=this.props.DATACom;
+  AsliData = this.props.DATACom;
+  Data = this.props.DATACom;
   renderItem = ({ item }) => (
     <View style={styles.container}>
       <View style={styles.dos}>
@@ -20,13 +20,13 @@ export class DoslarComponent extends React.Component {
       </View>
     </View>
   );
-  indiganda(inzdiganMazmun){
+  indiganda(inzdiganMazmun) {
     if (inzdiganMazmun) {
-      this.Data=lodash.filter(this.AsliData,function(a){
-        return a.isim.toLowerCase().includes(inzdiganMazmun.toLowerCase())?true:false;
+      this.Data = lodash.filter(this.AsliData, function (a) {
+        return a.isim.toLowerCase().includes(inzdiganMazmun.toLowerCase()) ? true : false;
       })
     } else {
-      this.Data=this.AsliData;
+      this.Data = this.AsliData;
     }
     this.forceUpdate();
   }
@@ -35,16 +35,16 @@ export class DoslarComponent extends React.Component {
       <SafeAreaView style={styles.container}>
         <View style={styles.izdaxView}>
           <Ionicons style={styles.izdaxIcon} name="search" />
-          <TextInput 
-          style={styles.izdaxHat} 
-          placeholder="izdimakqi bolgan mazmunni kirguzig"
-          placeholderTextColor="#8e8e8f"
-          onChangeText={text => this.indiganda(text)}
+          <TextInput
+            style={styles.izdaxHat}
+            placeholder="izdimakqi bolgan mazmunni kirguzig"
+            placeholderTextColor="#8e8e8f"
+            onChangeText={text => this.indiganda(text)}
           >
-          
+
           </TextInput>
         </View>
-        
+
         {this.props.tipi === 'doslar' ?
           <View style={styles.yegidos}>
             <View style={styles.dos}>
@@ -102,25 +102,25 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginTop: 10
   },
-  izdaxView:{
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
-    flexDirection:'row',
-    paddingRight:10,
-    paddingLeft:10,
-    margin:10,
-    height:30,
-    borderRadius:10,
+  izdaxView: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingRight: 10,
+    paddingLeft: 10,
+    margin: 10,
+    height: 30,
+    borderRadius: 10,
 
   },
-  izdaxIcon:{
-    fontSize:15
+  izdaxIcon: {
+    fontSize: 15
   },
-  izdaxHat:{
-    fontSize:15,
-    width:'100%',
-    paddingRight:10,
-    paddingLeft:10
+  izdaxHat: {
+    fontSize: 15,
+    width: '100%',
+    paddingRight: 10,
+    paddingLeft: 10
   }
 });
